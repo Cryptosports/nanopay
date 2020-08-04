@@ -29,6 +29,7 @@ NANOPAY API takes out hassle of generating work for NANO. Your Clients/Users gen
 | Minimum Send               | No Limit | 0.000001 |
 
 
+
 ## RUN
 
 **Everything**
@@ -54,6 +55,14 @@ node pow.js
 ```sh
 node gpu/gpu.js
 ```
+
+
+
+## RUN On Cloud
+
+Deploy TO Heroku [FREE] 
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 
 
