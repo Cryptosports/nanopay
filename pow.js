@@ -1,8 +1,9 @@
 const nanocurrency = require('nanocurrency');
 const axios = require('axios');
+const configvar = require('./app.json');
 
 // set worknode to remote pow solver (if needed)
-var worknode = process.env.worknode || 'http://127.0.0.1:2883';
+var worknode = process.env.worknode || configvar.worknode;
 
 async function hybirdwork(blockblock) {
 	console.log('work requested : ' + blockblock);
