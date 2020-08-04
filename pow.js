@@ -1,7 +1,7 @@
 const nanocurrency = require('nanocurrency');
 const axios = require('axios');
 
-var worknode = process.env.worknode;
+var worknode = process.env.worknode || 'http://127.0.0.1:2883';
 
 async function hybirdwork(blockblock) {
 	console.log('work requested : ' + blockblock);
