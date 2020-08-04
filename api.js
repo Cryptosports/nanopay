@@ -4,11 +4,12 @@ const BigNumber = require('bignumber.js');
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const configvar = require('./app.json')
 
 // db init
 mongoose.set('useCreateIndex', true);
 mongoose.set('useFindAndModify', false);
-mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true }).then((result) => {
+mongoose.connect(process.env.MONGODB_URI || configvar.mongodb, { useNewUrlParser: true, useUnifiedTopology: true }).then((result) => {
 	console.log('MONGODB CONNECTED');
 });
 
@@ -27,7 +28,7 @@ var main = mongoose.model(
 
 
 const app = express();
-const node = process.env.nanonode || 'http://localhost:7076';
+const node = process.env.nanonode || configvar.nanonode;
 // use a remote node or use local docker -> docker pull nanocurrency/nano
 app.listen(process.env.PORT || 5000, '0.0.0.0');
 
