@@ -28,8 +28,6 @@ NANOPAY API takes out hassle of generating work for NANO. Your Clients/Users gen
 | Custom Derivation          | YES      | NO       |
 | Minimum Send               | No Limit | 0.000001 |
 
-
-
 ## RUN
 
 **Everything**
@@ -56,24 +54,18 @@ node pow.js
 node gpu/gpu.js
 ```
 
-
-
 ## RUN On Cloud
 
-Deploy TO Heroku [FREE] 
+Deploy TO Heroku [FREE]
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
-
-
-
-
 
 ## API CALLS
 
 **Get Full Details About NANO Address**
 
 ```sh
-       address = 'nano_3juezzxttp8p8mxn954nudntq4za44x7ppxef8mfemcn4fmfrc9ijh9jons7'
+    address = 'nano_3juezzxttp8p8mxn954nudntq4za44x7ppxef8mfemcn4fmfrc9ijh9jons7'
 
 	axios({ method: "POST", url: "https://nanopay.besoeasy.com/nanoinfo/" + address }).then((response) => {
 		console.log(response.data)
@@ -82,18 +74,14 @@ Deploy TO Heroku [FREE]
 
 ```
 
-**Get Balance, Public Key, Opened Status Information**
+**Get Full Details About NANO Block**
 
 ```sh
-	axios({
-		method: "POST",
-		url: "https://nanopay.besoeasy.com/balance",
-		headers: {
-			seed: seed,
-			index: 0,
-		},
-	}).then(function (response) {
-		console.log(response.data);
+    block = 'A849EDA52540AECDCA03BD856ACF973D5A142997687FEFCC79721AAD135C55C4'
+
+	axios({ method: "POST", url: "https://nanopay.besoeasy.com/blockinfo/" + block }).then((response) => {
+		console.log(response.data)
+	// nano information
 	});
 
 ```
@@ -167,7 +155,7 @@ Deploy TO Heroku [FREE]
 
 	axios({
 		method: "POST",
-		url: "https://nanopay.besoeasy.com/powrequest",
+		url: "https://nanopay.besoeasy.com/powcache",
 		headers: {
 			seed: seed,
 			index: 0,

@@ -4,16 +4,17 @@ const BigNumber = require('bignumber.js');
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const configvar = require('./app.json')
 
 // db init
 mongoose.set('useCreateIndex', true);
 mongoose.set('useFindAndModify', false);
-mongoose.connect(process.env.MONGODB_URI || configvar.mongodb, { useNewUrlParser: true, useUnifiedTopology: true }).then((result) => {
+mongoose.connect(process.env.mongodb, { useNewUrlParser: true, useUnifiedTopology: true }).then((result) => {
 	console.log('MONGODB CONNECTED');
 });
 
-var main = mongoose.model( 'main', new mongoose.Schema({
+var main = mongoose.model(
+	'main',
+	new mongoose.Schema({
 		blockHash: { type: String, unique: true, required: true },
 		pow: { type: String },
 		expireAt: {
@@ -24,20 +25,17 @@ var main = mongoose.model( 'main', new mongoose.Schema({
 	})
 );
 
-
 const app = express();
-const node = process.env.nanonode || configvar.nanonode;
-app.listen(process.env.PORT || configvar.port, '0.0.0.0');
-
+const node = process.env.nanonode;
+app.listen(process.env.PORT || 5000, '0.0.0.0');
 
 app.use(cors());
 
 app.all('/blockinfo/:block', (request, reply) => {
-axios.post(node, { action: 'blocks_info', hashes: [request.params.block],}).then(function (response) {			
- reply.json(response.data);
+	axios.post(node, { action: 'blocks_info', hashes: [request.params.block] }).then(function (response) {
+		reply.json(response.data);
+	});
 });
-});
-
 
 app.all('/nanoinfo/:addr', (request, reply) => {
 	axios
@@ -106,19 +104,7 @@ app.all('/work/get', (request, reply) => {
 	});
 });
 
-app.all('/balance/', async (request, reply) => {
-	var secretKey = nanocurrency.deriveSecretKey(request.headers.seed, parseInt(request.headers.index));
-	var publicKey = nanocurrency.derivePublicKey(secretKey);
-	var address = nanocurrency.deriveAddress(publicKey, { useNanoPrefix: true });
-
-	var sddsf_address = await accountdig(address);
-	var puki = BigNumber(sddsf_address.balance);
-	var b2 = puki.dividedBy(1000000000000000000000000000000).toFixed(8);
-
-	reply.json({ opened: !isNaN(b2), address: address, publicKey: publicKey, balance: b2 });
-});
-
-app.all('/powrequest/', async (request, reply) => {
+app.all('/powcache/', async (request, reply) => {
 	var secretKey = nanocurrency.deriveSecretKey(request.headers.seed, parseInt(request.headers.index));
 
 	var bing = await recentblockcache(secretKey);
