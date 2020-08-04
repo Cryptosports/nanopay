@@ -1,0 +1,39 @@
+{
+	"name": "nano-payment-master",
+	"version": "1.0.0",
+	"description": "nano currency payment processor ",
+	"main": "app.js",
+	"dependencies": {
+		"axios": "^0.19.2",
+		"bignumber.js": "^9.0.0",
+		"cors": "^2.8.5",
+		"express": "^4.17.1",
+		"mongoose": "^5.9.18",
+		"nanocurrency": "^2.3.0",
+		"nodemon": "^2.0.4",
+		"shelljs": "^0.8.4"
+	},
+	"devDependencies": {},
+	"scripts": {
+		"start": "node app.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/besoeasy/nano-payment.git"
+	},
+	"keywords": [
+		"nano",
+		"nano",
+		"currency",
+		"crypto",
+		"payment",
+		"payment",
+		"processor"
+	],
+	"author": "besoeasy",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/besoeasy/nano-payment/issues"
+	},
+	"homepage": "https://github.com/besoeasy/nano-payment#readme"
+}
