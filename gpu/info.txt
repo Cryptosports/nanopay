@@ -1,0 +1,4 @@
+GITHUB : https://github.com/nanocurrency/nano-work-server
+
+
+Release : https://github.com/nanocurrency/nano-work-server/releases/latest
