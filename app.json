@@ -6,5 +6,6 @@
   "mongodb" : "yourmongodburi",
   "nanonode" : "http://localhost:7076",
   "worknode" : "http://localhost:2883",
+  "port" : "6666",
   "keywords": ["nanocurrency", "nano", "bitcoin", "crypto", "payment"]
 }
