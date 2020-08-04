@@ -13,9 +13,7 @@ mongoose.connect(process.env.MONGODB_URI || configvar.mongodb, { useNewUrlParser
 	console.log('MONGODB CONNECTED');
 });
 
-var main = mongoose.model(
-	'main',
-	new mongoose.Schema({
+var main = mongoose.model( 'main', new mongoose.Schema({
 		blockHash: { type: String, unique: true, required: true },
 		pow: { type: String },
 		expireAt: {
@@ -29,8 +27,7 @@ var main = mongoose.model(
 
 const app = express();
 const node = process.env.nanonode || configvar.nanonode;
-// use a remote node or use local docker -> docker pull nanocurrency/nano
-app.listen(process.env.PORT || 5000, '0.0.0.0');
+app.listen(process.env.PORT || configvar.port, '0.0.0.0');
 
 
 app.use(cors());
