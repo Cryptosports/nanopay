@@ -3,5 +3,8 @@
   "description": "nanocurrency payment processor",
   "repository": "https://github.com/besoeasy/nanopay",
   "logo": "https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/128/icon/nano.png",
+  "mongodb" : "yourmongodburi",
+  "nanonode" : "http://localhost:7076",
+  "worknode" : "http://localhost:2883",
   "keywords": ["nanocurrency", "nano", "bitcoin", "crypto", "payment"]
 }
