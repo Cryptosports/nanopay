@@ -68,7 +68,7 @@ Deploy TO Heroku [FREE]
 
 
 
-## DEVELOPER
+## API CALLS
 
 **Get Full Details About NANO Address**
 
