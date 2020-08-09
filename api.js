@@ -20,7 +20,7 @@ var main = mongoose.model(
 		expireAt: {
 			type: Date,
 			default: Date.now,
-			index: { expires: '4d' },
+			index: { expires: '1d' },
 		},
 	})
 );
