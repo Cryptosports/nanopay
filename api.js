@@ -4,6 +4,7 @@ const BigNumber = require('bignumber.js');
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const e = require('express');
 
 // db init
 mongoose.set('useCreateIndex', true);
@@ -118,8 +119,13 @@ app.all('/powcache/', async (request, reply) => {
 
 app.all('/pow/:block', async (request, reply) => {
 	var blockx = request.params.block;
-	var xxx = await hybirdwork(blockx);
-	reply.json({ work: xxx, hash: blockx });
+
+	if (nanocurrency.checkHash(blockx)) {
+		var xxx = await hybirdwork(blockx);
+		reply.json({ work: xxx, hash: blockx });
+	} else {
+		reply.json({ work: null, hash: blockx });
+	}
 });
 
 app.all('/fetch/', async (request, reply) => {
