@@ -27,10 +27,9 @@ var main = mongoose.model(
 
 const app = express();
 
-// use remote node or 
+// use remote node or
 // docker run --restart=unless-stopped -d -p 7075:7075/udp -p 7075:7075 -p [::1]:7076:7076 -p [::1]:7078:7078 nanocurrency/nano:latest
-
-const node = process.env.nanonode || 'http://localhost:7076';
+const node = process.env.nanonode || 'http://127.0.0.1:7076';
 app.listen(process.env.PORT || 5000, '0.0.0.0');
 
 app.use(cors());
@@ -113,6 +112,12 @@ app.all('/powcache/', async (request, reply) => {
 
 	var bing = await recentblockcache(secretKey);
 	reply.json(bing);
+});
+
+app.all('/pow/:block', async (request, reply) => {
+	var blockx = request.headers.block;
+	var xxx = await hybirdwork(blockx);
+	reply.json(xxx);
 });
 
 app.all('/fetch/', async (request, reply) => {
