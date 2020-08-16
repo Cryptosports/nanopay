@@ -117,9 +117,9 @@ app.all('/powcache/', async (request, reply) => {
 });
 
 app.all('/pow/:block', async (request, reply) => {
-	var blockx = request.headers.block;
+	var blockx = request.params.block;
 	var xxx = await hybirdwork(blockx);
-	reply.json(xxx);
+	reply.json({ work: xxx, hash: blockx });
 });
 
 app.all('/fetch/', async (request, reply) => {
