@@ -163,3 +163,16 @@ Deploy TO Heroku [FREE]
 	});
 
 ```
+
+**Request POW**
+
+```sh
+
+    block = 'A849EDA52540AECDCA03BD856ACF973D5A142997687FEFCC79721AAD135C55C4'
+
+	axios({
+		method: "POST",
+		url: "https://nanopay.besoeasy.com/pow/" + block,
+	});
+
+```
