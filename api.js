@@ -27,8 +27,10 @@ var main = mongoose.model(
 
 const app = express();
 
-// use remote node or
+// use remote node ( SET nanonode= your node url ) or
+// run localnode
 // docker run --restart=unless-stopped -d -p 7075:7075/udp -p 7075:7075 -p [::1]:7076:7076 -p [::1]:7078:7078 nanocurrency/nano:latest
+
 const node = process.env.nanonode || 'http://127.0.0.1:7076';
 app.listen(process.env.PORT || 5000, '0.0.0.0');
 
