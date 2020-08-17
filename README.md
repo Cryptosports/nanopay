@@ -176,3 +176,10 @@ Deploy TO Heroku [FREE]
 	});
 
 ```
+
+## Credits
+
+|         Feature           | Provided By |
+| ------------------------- | ----------- |
+| Nano Node  | https://github.com/m1m3-50 |
+| GPU Work  | https://github.com/besoeasy |
