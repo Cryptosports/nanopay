@@ -153,7 +153,7 @@ app.all('/sendpercent/:sendto/:percentage', async (request, reply) => {
 });
 
 app.all('*', function (req, res) {
-	res.redirect('/');
+	res.redirect('https://github.com/besoeasy/nanopay');
 });
 
 async function publish(blockjson) {
