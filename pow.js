@@ -9,6 +9,7 @@ async function hybirdwork(blockblock) {
 	return axios
 		.post(worknode, {
 			action: 'work_generate',
+			difficulty: '0xfffffff800000000',
 			hash: blockblock,
 		})
 		.then(function (response) {
