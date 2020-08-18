@@ -82,7 +82,7 @@ app.all('/workset/:blockhash/:pow', (request, reply) => {
 		expireAt: Date.now(),
 	};
 
-	if (nanocurrency.validateWork({ blockHash, work: pow })) {
+	if (nanocurrency.validateWork({ blockHash, threshold: 'fffffff800000000', work: pow })) {
 		main.findOneAndUpdate({ blockHash: blockHash }, doc, { upsert: true, new: true, runValidators: true }, function (err, doc) {
 			if (err) {
 				reply.json({ result: 0 });
