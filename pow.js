@@ -17,7 +17,7 @@ async function hybirdwork(blockblock) {
 			return response.data.work;
 		})
 		.catch(async function (error) {
-			pow = await nanocurrency.computeWork(blockblock);
+			pow = await nanocurrency.computeWork(blockblock, (ComputeWorkParams = { workThreshold: 'fffffff800000000' }));
 			console.log('cpu work : ' + pow);
 			return pow;
 		});
