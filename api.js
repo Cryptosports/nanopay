@@ -47,7 +47,7 @@ app.all('/nanoinfo/:addr', (request, reply) => {
 		.post(node, {
 			action: 'account_history',
 			account: request.params.addr,
-			count: 100,
+			count: 1000,
 		})
 		.then(function (response) {
 			axios
