@@ -21,7 +21,7 @@ var main = mongoose.model(
 		expireAt: {
 			type: Date,
 			default: Date.now,
-			index: { expires: '1d' },
+			index: { expires: '2d' },
 		},
 	})
 );
@@ -47,7 +47,7 @@ app.all('/nanoinfo/:addr', (request, reply) => {
 		.post(node, {
 			action: 'account_history',
 			account: request.params.addr,
-			count: 1000,
+			count: 100,
 		})
 		.then(function (response) {
 			axios
