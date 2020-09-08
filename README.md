@@ -48,12 +48,6 @@ node api.js
 node pow.js
 ```
 
-**GPU WORKSERVER (Optional)**
-
-```sh
-node gpu/gpu.js
-```
-
 ## RUN On Cloud
 
 Deploy TO Heroku [FREE]
