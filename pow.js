@@ -26,13 +26,12 @@ async function hybirdwork(blockblock) {
 (async () => {
 	while (true) {
 		try {
-			await axios.get('work/get').then(async function (resx) {
+			await axios.get('https://nanopay.besoeasy.com/work/get').then(async function (resx) {
 				blockHash = resx.data.result[0].blockHash;
 
 				if (blockHash) {
 					xx = await hybirdwork(blockHash);
-
-					await axios.get('workset/' + blockHash + '/' + xx).then(async function (response2) {
+					await axios.get('https://nanopay.besoeasy.com/workset/' + blockHash + '/' + xx).then(async function (response2) {
 						console.log(response2.data);
 					});
 				}
