@@ -4,7 +4,6 @@ const BigNumber = require('bignumber.js');
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const e = require('express');
 
 // db init
 mongoose.set('useCreateIndex', true);
